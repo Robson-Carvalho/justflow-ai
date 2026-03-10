@@ -1,0 +1,46 @@
+services:
+  realtime-hub:
+    build: ./realtime-hub
+    container_name: realtime-hub
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./realtime-hub:/app
+      - deps:/app/deps
+      - build:/app/_build
+    environment:
+      - MIX_ENV=dev
+
+  ai-agent:
+    build: ./ai-agent
+    container_name: ai-agent
+    ports:
+      - "8000:8000"
+    depends_on:
+      - realtime-hub
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+
+  dashboard_1:
+    build: ./dashboard
+    container_name: dashboard_1
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_WS_URL=ws://localhost:4000/socket 
+    depends_on:
+      - realtime-hub
+
+  dashboard_2:
+    build: ./dashboard
+    container_name: dashboard_2
+    ports:
+      - "3001:3000"
+    environment:
+      - VITE_WS_URL=ws://localhost:4000/socket
+    depends_on:
+      - realtime-hub
+
+volumes:
+  deps:
+  build:
