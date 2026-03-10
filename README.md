@@ -44,7 +44,7 @@ O projeto é dividido em três microserviços orquestrados via **Docker**:
 
 - **Backend IA:** Python 3.11, FastAPI, LangGraph, LangChain.
 - **Backend Real-time:** Elixir 1.15, Phoenix Framework (Channels).
-- **Frontend:** Next.js 14, Tailwind CSS, Phoenix.js (Socket client).
+- **Frontend:** React & Vite, TypeScript, Tailwind CSS, Phoenix.js (Socket client).
 - **Infra:** Docker, Docker Compose.
 
 ---
@@ -55,7 +55,7 @@ Certifique-se de ter o **Docker** e o **Docker Compose** instalados.
 
 1. Clone o repositório:
    ```bash
-   git clone [https://github.com/Robson-Carvalho/justflow-ai.git](https://github.com/Robson-Carvalho/justflow-ai.git)
+   git clone https://github.com/Robson-Carvalho/justflow-ai.git
    cd justflow-ai
    ```
 2. Configure as variáveis de ambiente (API Keys de IA) no arquivo `.env`.
