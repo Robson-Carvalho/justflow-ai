@@ -3,5 +3,7 @@ uvicorn
 langgraph
 langchain-openai
 langchain-community
-requests
+tavily-python
+pydantic-settings
+httpx
 python-dotenv

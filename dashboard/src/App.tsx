@@ -28,7 +28,7 @@ export const App = () => {
       .receive("error", () => setConnected(false));
 
     channel.on("new_alert", (payload: AlertPayload) => {
-      setAlerts((prev) => [payload.body, ...prev].slice(0, 8));
+      setAlerts((prev) => [payload.body, ...prev]);
     });
 
     return () => {
@@ -80,7 +80,7 @@ export const App = () => {
                 </h2>
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-3 max-h-64 overflow-y-auto pr-2">
                 {alerts.length === 0 ? (
                   <div className="flex h-40 items-center justify-center rounded-2xl border-2 border-dashed border-slate-800 text-slate-600">
                     <p className="text-sm italic">Aguardando Informações...</p>

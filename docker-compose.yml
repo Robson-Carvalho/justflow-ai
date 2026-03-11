@@ -20,7 +20,8 @@ services:
       - realtime-hub
     environment:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
-
+      - TAVILY_API_KEY=${TAVILY_API_KEY}     
+      
   dashboard_1:
     build: ./dashboard
     container_name: dashboard_1
